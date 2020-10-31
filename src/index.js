@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 
-ReactDOM.render (
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById ('root'),
-)
+const root = document.getElementById ('root')
+if (root) {
+  ReactDOM.render (<React.StrictMode><App /></React.StrictMode>)
+}
