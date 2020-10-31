@@ -14,3 +14,16 @@
 //  Gitlab : https://gitlab.com/Fathalfath30
 //
 */
+const express = require ('express')
+const app = express ()
+// port
+const port = 3000
+
+try {
+  // start server
+  app.listen (port, () => {
+    console.log (`Scheduling API server listening on port: ${port}`)
+  })
+} catch (e) {
+  console.log (e.message)
+}

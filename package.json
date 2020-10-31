@@ -2,6 +2,7 @@
   "name": "scheduling",
   "version": "0.1.0",
   "private": true,
+  "type": "prorject",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
@@ -10,17 +11,21 @@
     "express": "^4.17.1",
     "forever": "^3.0.2",
     "jquery": "^3.5.1",
+    "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "sequelize": "^6.3.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-dev": "nodemon ./src/index.js",
+    "start-server-dev": "nodemon ./server/index.js"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +48,7 @@
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.21.5"
+    "eslint-plugin-react": "^7.21.5",
+    "sequelize-cli": "^6.2.0"
   }
 }
