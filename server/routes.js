@@ -14,20 +14,20 @@
 //  Gitlab : https://gitlab.com/Fathalfath30
 //
 */
+
 const express = require ('express')
-const app = express ()
-const routes = require ('./routes')
+// eslint-disable-next-line new-cap
+const r = express.Router ()
 
-// port
-const port = 3000
+r.use ((req, res, next) => {
+  console.log ('something happening.')
+  next ()
+})
 
-try {
-  app.use ('/api', routes)
-
-  // start server
-  app.listen (port, () => {
-    console.log (`Scheduling API server listening on port: ${port}`)
+r.get ('/', (req, res, next) => {
+  res.send ({
+    Hello: 'hola!',
   })
-} catch (e) {
-  console.log (e.message)
-}
+})
+
+module.exports = r
