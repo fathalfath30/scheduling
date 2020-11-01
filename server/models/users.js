@@ -1,9 +1,10 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const {Model} = require ('sequelize')
+
 module.exports = (sequelize, DataTypes) => {
+  // eslint-disable-next-line require-jsdoc
   class Users extends Model {
+    // eslint-disable-next-line valid-jsdoc
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,13 +13,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  Users.init({
+  }
+
+  Users.init ({
     id: DataTypes.INTEGER,
-    username: DataTypes.STRING
+    username: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Users',
-  });
-  return Users;
-};
+  })
+  
+  return Users
+}
