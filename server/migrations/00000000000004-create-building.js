@@ -24,7 +24,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER.UNSIGNED,
       },
       name: {
         // eslint-disable-next-line new-cap

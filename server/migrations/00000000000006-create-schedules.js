@@ -24,8 +24,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        unsigned: true,
+        type: Sequelize.INTEGER.UNSIGNED,
       },
       title: {
         type: Sequelize.STRING,
