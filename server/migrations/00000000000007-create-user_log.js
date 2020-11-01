@@ -20,11 +20,17 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable ('user_log', {
-      id: {
+      user: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER.UNSIGNED,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
       },
       log_tag: {
         // eslint-disable-next-line new-cap
@@ -47,7 +53,7 @@ module.exports = {
       updated_at: {
         allowNull: true,
         type: Sequelize.DATE,
-      }
+      },
     })
   },
   down: async (queryInterface, Sequelize) => {
