@@ -26,16 +26,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER.UNSIGNED,
       },
-      created_at: {
+      setting_key: {
+        type: Sequelize.STRING,
         allowNull: false,
+      },
+      setting_value: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
+      created_at: {
+        allowNull: true,
         type: Sequelize.DATE,
       },
       updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      deleted_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
     })
