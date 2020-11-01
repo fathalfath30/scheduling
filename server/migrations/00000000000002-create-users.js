@@ -43,6 +43,20 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true,
       },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      role: {
+        type: Sequelize.TINYINT.UNSIGNED,
+        allowNull: false,
+        references: {
+          model: 'roles',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
+      },
       full_name: {
         // eslint-disable-next-line new-cap
         type: Sequelize.STRING (75),
