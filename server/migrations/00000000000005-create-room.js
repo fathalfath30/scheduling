@@ -30,12 +30,26 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updated_at: {
+      name: {
+        // eslint-disable-next-line new-cap
+        type: Sequelize.STRING (75),
         allowNull: false,
+      },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
+      phone_ext: {
+        // eslint-disable-next-line new-cap
+        type: Sequelize.STRING (5),
+        allowNull: false,
+      },
+      updated_at: {
+        allowNull: true,
         type: Sequelize.DATE,
       },
       deleted_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
     })
