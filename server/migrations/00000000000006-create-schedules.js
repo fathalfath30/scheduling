@@ -35,24 +35,44 @@ module.exports = {
         allowNull: true,
       },
       building: {
-        type: Sequelize.INTEGER,
-        unsigned: true,
+        type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
+        references: {
+          model: 'building',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
       },
       room: {
-        type: Sequelize.INTEGER,
-        unsigned: true,
+        type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
+        references: {
+          model: 'room',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
       },
       session: {
-        type: Sequelize.TINYINT,
-        unsigned: true,
+        type: Sequelize.TINYINT.UNSIGNED,
         allowNull: false,
+        references: {
+          model: 'sessions',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
       },
       user: {
-        type: Sequelize.INTEGER,
-        unsigned: true,
+        type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
       },
       created_at: {
         allowNull: true,
