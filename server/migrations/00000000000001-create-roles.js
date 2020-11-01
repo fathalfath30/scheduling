@@ -21,10 +21,19 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable ('roles', {
       id: {
+        type: Sequelize.TINYINT,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+      },
+      name: {
+        // eslint-disable-next-line new-cap
+        type: Sequelize.STRING (75),
+        allowNull: false,
+      },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: true,
       },
       created_at: {
         allowNull: false,
