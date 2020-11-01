@@ -44,6 +44,16 @@ module.exports = {
         type: Sequelize.STRING (5),
         allowNull: false,
       },
+      building: {
+        type: Sequelize.INTEGER.UNSIGNED,
+        allowNull: true,
+        references: {
+          model: 'building',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
+      },
       updated_at: {
         allowNull: true,
         type: Sequelize.DATE,
