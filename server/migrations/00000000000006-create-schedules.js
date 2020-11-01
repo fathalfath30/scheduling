@@ -25,17 +25,46 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        unsigned: true,
+      },
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
+      building: {
+        type: Sequelize.INTEGER,
+        unsigned: true,
+        allowNull: false,
+      },
+      room: {
+        type: Sequelize.INTEGER,
+        unsigned: true,
+        allowNull: false,
+      },
+      session: {
+        type: Sequelize.TINYINT,
+        unsigned: true,
+        allowNull: false,
+      },
+      user: {
+        type: Sequelize.INTEGER,
+        unsigned: true,
+        allowNull: false,
       },
       created_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
       updated_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
       deleted_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
     })
