@@ -26,16 +26,29 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      created_at: {
+      name: {
+        // eslint-disable-next-line new-cap
+        type: Sequelize.STRING (75),
         allowNull: false,
+      },
+      start: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      finish: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      created_at: {
+        allowNull: true,
         type: Sequelize.DATE,
       },
       updated_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
       deleted_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
     })
