@@ -26,18 +26,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER.UNSIGNED,
       },
-      created_at: {
+      log_tag: {
+        // eslint-disable-next-line new-cap
+        type: Sequelize.STRING (150),
         allowNull: false,
+      },
+      log_data: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
+      ip_address: {
+        // eslint-disable-next-line new-cap
+        type: Sequelize.STRING (128),
+        allowNull: true,
+      },
+      created_at: {
+        allowNull: true,
         type: Sequelize.DATE,
       },
       updated_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
-      },
-      deleted_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
+      }
     })
   },
   down: async (queryInterface, Sequelize) => {
