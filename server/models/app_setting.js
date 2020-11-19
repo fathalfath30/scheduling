@@ -3,7 +3,7 @@ const {Model} = require ('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   // eslint-disable-next-line require-jsdoc
-  class Users extends Model {
+  class AppSetting extends Model {
     // eslint-disable-next-line valid-jsdoc
     /**
      * Helper method for defining associations.
@@ -15,13 +15,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  Users.init ({
-    id: DataTypes.INTEGER,
-    username: DataTypes.STRING,
+  AppSetting.init ({
+    id: DataTypes.INTEGER.UNSIGNED,
+    setting_key: DataTypes.STRING,
+    setting_value: DataTypes.TEXT,
+    created_at: {
+      allowNull: true,
+      type: Sequelize.DATE,
+    },
+    updated_at: {
+      allowNull: true,
+      type: Sequelize.DATE,
+    },
   }, {
     sequelize,
     modelName: 'app_setting',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   })
 
-  return Users
+  return AppSetting
 }
