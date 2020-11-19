@@ -18,8 +18,27 @@
 const express = require ('express')
 // eslint-disable-next-line new-cap
 const r = express.Router ()
+// const jwt = require ('jsonwebtoken')
 
 r.get ('/', (req, res, next) => {
+  const authHeader = req.headers['authorization']
+  if (!authHeader) {
+    res.status (401).send ({
+      status: 401,
+      message: null,
+      data: {},
+    })
+  }
+
+  const token = authHeader.split (' ')
+  if (token.length !== 2) {
+    res.status (400).send ({
+      status: 401,
+      message: null,
+      data: {},
+    })
+  }
+
   res.send ({
     Hello: 'hola!',
   })
