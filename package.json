@@ -30,9 +30,9 @@
     "eject": "react-scripts eject",
     "start-dev": "nodemon ./src/index.js",
     "start-server-dev": "nodemon ./server/index.js",
-    "install": "sequelize db:create && sequelize-cli db:migrate",
-    "reinstall": "sequelize-cli db:drop && sequelize db:create && sequelize-cli db:migrate",
-    "reinstall:seed": "sequelize-cli db:drop && sequelize db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all"
+    "install:db": "sequelize db:create && sequelize-cli db:migrate",
+    "reinstall:db": "sequelize-cli db:drop && sequelize db:create && sequelize-cli db:migrate",
+    "reinstall:db:seed": "sequelize-cli db:drop && sequelize db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all"
   },
   "eslintConfig": {
     "extends": [
