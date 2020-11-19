@@ -20,6 +20,7 @@ const routes = require ('./routes')
 const bodyParser = require ('body-parser')
 const cookieParser = require ('cookie-parser')
 const config = require ('./config')
+const model = require ('./models')
 
 try {
   app.use (bodyParser.urlencoded ({extended: false}))

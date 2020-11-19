@@ -16,16 +16,19 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   AppSetting.init ({
-    id: DataTypes.INTEGER.UNSIGNED,
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      primaryKey: true,
+    },
     setting_key: DataTypes.STRING,
     setting_value: DataTypes.TEXT,
     created_at: {
       allowNull: true,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updated_at: {
       allowNull: true,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
   }, {
     sequelize,
@@ -33,6 +36,5 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   })
-
   return AppSetting
 }
