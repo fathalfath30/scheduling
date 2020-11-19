@@ -14,11 +14,6 @@
 //  Gitlab : https://gitlab.com/Fathalfath30
 //
 */
-const express = require ('express')
-// eslint-disable-next-line new-cap
-const r = express.Router ()
-const controller = require ('../controllers')
-
-r.post ('/login', (req, res) => controller.api.auth.login (req, res))
-
-module.exports = r
+module.exports = async (req, res) => {
+  return res.send ({message: 'coming soon'})
+}
