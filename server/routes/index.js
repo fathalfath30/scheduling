@@ -24,6 +24,7 @@ r.use ((req, res, next) => {
   next ()
 })
 
+r.use ('/auth', require ('./Auth'))
 r.use ('/users', require ('./Users'))
 
 module.exports = r

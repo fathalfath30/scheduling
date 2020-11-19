@@ -22,6 +22,7 @@ const routes = require ('./routes')
 const port = 3000
 
 try {
+  app.use (express.json ())
   app.use ('/api', routes)
 
   // start server

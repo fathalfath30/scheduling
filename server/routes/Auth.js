@@ -14,9 +14,18 @@
 //  Gitlab : https://gitlab.com/Fathalfath30
 //
 */
-module.exports = {
-  app: {
-    // eslint-disable-next-line max-len
-    secret: 'a1b6bf82590ba4b1e3934ba37b8a865057f6fdf5424a976e8d20448a8690398102b4a48d6b4265552ea0e16512e5a5a7a88def7922c2c7686f95c536c7f57204',
-  },
-}
+const express = require ('express')
+// eslint-disable-next-line new-cap
+const r = express.Router ()
+const config = require ('../config/app')
+const jwt = require ('jsonwebtoken')
+
+r.post ('/login', (req, res) => {
+  const username = req.body.username
+  const accessToken = jwt.sign ({user: username}, config.app.secret)
+  res.json ({
+    accessToken,
+  })
+})
+
+module.exports = r
