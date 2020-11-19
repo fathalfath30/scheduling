@@ -24,10 +24,6 @@ r.use ((req, res, next) => {
   next ()
 })
 
-r.get ('/', (req, res, next) => {
-  res.send ({
-    Hello: 'hola!',
-  })
-})
+r.use ('/users', require ('./Users'))
 
 module.exports = r
