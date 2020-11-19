@@ -15,10 +15,33 @@
 //
 */
 'use strict'
+const bcrypt = require ('bcrypt')
+const config = require ('../config')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert ('users', require ('../data/default/users.json'))
+    // eslint-disable-next-line prefer-const
+    let data = []
+    const plainData = require ('../data/default/users.json')
+
+    plainData.forEach ((idx) => {
+      data.push ({
+        id: idx.id,
+        username: idx.username,
+        email: idx.email.toLowerCase (),
+        email_verified_at: idx.email_verified_at,
+        password: ((password) => bcrypt.hashSync (password, config.app.encryption.saltRounds)) (idx.password),
+        role: idx.role,
+        full_name: idx.full_name,
+        date_of_birth: idx.date_of_birth,
+        phone_number: idx.phone_number,
+        created_at: idx.created_at,
+        updated_at: idx.updated_at,
+        deleted_at: idx.deleted_at,
+      })
+    })
+
+    return queryInterface.bulkInsert ('users', data)
   },
 
   down: async (queryInterface, Sequelize) => {
