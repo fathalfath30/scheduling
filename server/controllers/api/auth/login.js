@@ -14,6 +14,40 @@
 //  Gitlab : https://gitlab.com/Fathalfath30
 //
 */
+
+const users = require ('../../../models').users
+const {Op} = require ('sequelize')
+
 module.exports = async (req, res) => {
-  return res.send ({message: 'coming soon'})
+  const username = req.body.username
+  const password = req.body.password
+
+  if (!username) {
+    return res.status (400).send ({
+      code: 400,
+      message: 'Username is required!',
+    })
+  }
+
+  if (!password) {
+    return res.status (400).send ({
+      code: 400,
+      message: 'Password is required!',
+    })
+  }
+
+  const data = await users.findOne ({
+    where: {
+      [Op.or]: {
+        username: {
+          [Op.like]: username,
+        },
+        email: {
+          [Op.like]: username,
+        },
+      },
+    },
+  })
+
+  return res.send (data)
 }

@@ -63,7 +63,7 @@ module.exports = {
         allowNull: false,
       },
       date_of_birth: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true,
       },
       phone_number: {
