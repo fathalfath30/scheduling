@@ -15,8 +15,12 @@
 //
 */
 module.exports = {
-  app: {
+  listeningPort: 3000,
+  system: {
     // eslint-disable-next-line max-len
     secret: 'a1b6bf82590ba4b1e3934ba37b8a865057f6fdf5424a976e8d20448a8690398102b4a48d6b4265552ea0e16512e5a5a7a88def7922c2c7686f95c536c7f57204',
+  },
+  encryption: {
+    saltRounds: 10,
   },
 }

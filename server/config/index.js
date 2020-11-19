@@ -14,24 +14,8 @@
 //  Gitlab : https://gitlab.com/Fathalfath30
 //
 */
-const express = require ('express')
-const app = express ()
-const routes = require ('./routes')
-const bodyParser = require ('body-parser')
-const cookieParser = require ('cookie-parser')
-const config = require ('./config')
 
-try {
-  app.use (bodyParser.urlencoded ({extended: false}))
-  app.use (express.json ())
-  app.use (cookieParser ())
-
-  app.use ('/api', routes)
-
-  // start server
-  app.listen (config.app.listeningPort, () => {
-    console.log (`Scheduling API server listening on port: ${config.app.listeningPort}`)
-  })
-} catch (e) {
-  console.log (e.message)
+module.exports = {
+  app: require ('./app'),
+  database: require ('./database'),
 }

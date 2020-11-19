@@ -17,12 +17,12 @@
 const express = require ('express')
 // eslint-disable-next-line new-cap
 const r = express.Router ()
-const config = require ('../config/app')
+const config = require ('../config')
 const jwt = require ('jsonwebtoken')
 
 r.post ('/login', (req, res) => {
   const username = req.body.username
-  const accessToken = jwt.sign ({user: username}, config.app.secret)
+  const accessToken = jwt.sign ({user: username}, config.app.system.secret)
   res.json ({
     accessToken,
   })
